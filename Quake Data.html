@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Earthquake Feed Output</title>
+   </head>
+   <h1> Feed Output </h1>
+   <br>
+   <p>
+       Below is the output from the Earthquake Feed I created. Earthquake data
+       is pulled from the USGS api (https://www.usgs.gov) and tweet data is
+       retrieved from the Twitter api.
+   </p>
+   <body>
+   <br>
+      <p> Below is a summary table of data that pertains to
+          the last earthquake that occured. The image will update whenever there
+      is a new earthquake since the link used in the image tag is from my
+      S3 bucket.</p>
+      <img src="https://tweetsdatajosh.s3.us-east-2.amazonaws.com/summary_table.png",
+         alt="Opps, there's supposed to be an image here :/">
+      <p> Below is a wordcloud of the tweets that were scraped from the area where the
+      earthquake occured. If the earthquake occured in an obscure, frozen over part of
+      Alaska, then the wordcloud will be made up of "Tweets Not Available in Area"
+      or something along those lines. The image will update whenever there
+      is a new earthquake since the link used in the image tag is from my
+      S3 bucket.</p>
+      <img src="https://tweetsdatajosh.s3.us-east-2.amazonaws.com/wordcloud.png",
+         alt="Opps, there's supposed to be an image here :/">
+   </body>
+</html>
