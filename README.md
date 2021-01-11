@@ -2,7 +2,7 @@
 
 
 # Project Overview
-Reporting tool that monitors for earthquakes in North American and creates a WordCloud of the most common words found in the tweets that following the event. Written exclusively in python and leverages AWS products – EC2, S3, and Lambda functions – to manage functionalities.
+Reporting tool that monitors for earthquakes in North America and creates a WordCloud of the most common words found in the tweets following the event. Written exclusively in python and leverages AWS products – EC2, S3, and Lambda functions – to manage functionalities.
 
 
 ### Example outputs: 
