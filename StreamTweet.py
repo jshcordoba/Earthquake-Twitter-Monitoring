@@ -104,7 +104,7 @@ def main(event, context):
         myStream = tweepy.Stream(auth=api.auth, listener=tweet_stream)
         print(myStream.filter(locations=coordinates))
         tweet_stream.file_close()
-        tweets_to_s3(tweet_stream)
+        tweets_to_s3()
         return (print("Done!"))
 
 
