@@ -57,6 +57,7 @@ def report_quake():
 if __name__ == '__main__':
     cli = boto3.client('s3', aws_access_key_id='xxx',
                        aws_secret_access_key='xxx'
+                                             'xxx'
                        )
     call_two = EarthQuake(2)
     while True:
