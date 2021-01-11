@@ -45,8 +45,8 @@ def report_quake():
     if call_two.get_count > call_one.get_count:
         summary_data = new_summary_info(call_two_report,
                                         call_one_report)
-        cli.put_object(Body=json.dumps(summary_data), Bucket='tweetsdatajosh',
-                       Key='quake_coordinate.json')
+        cli.put_object(Body=json.dumps(summary_data), Bucket='xxx',
+                       Key='xxx.json')
     else:
         summary_data = new_summary_info(call_one_report,
                                                 call_two_report)
