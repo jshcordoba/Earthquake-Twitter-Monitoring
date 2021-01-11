@@ -5,7 +5,6 @@ discrepancy is found, that means that there is a new earthquake. The
 new earthquake data is uploaded as a json file to the S3 bucket.
 """
 
-
 import requests
 from datetime import datetime, timedelta
 import csv
@@ -49,23 +48,30 @@ def report_quake():
         cli.put_object(Body=json.dumps(summary_data), Bucket='xxx',
                        Key='xxx.json')
     else:
-        new_quake_coordinate = new_coordinates(call_one_report,
-                                               call_two_report)
+        summary_data = new_summary_info(call_one_report,
+                                                call_two_report)
         cli.put_object(Body=json.dumps(summary_data), Bucket='xxx',
                        Key='xxx.json')
 
 
 if __name__ == '__main__':
     cli = boto3.client('s3', aws_access_key_id='xxx',
-                       aws_secret_access_key=
-                       'xxx')
+                       aws_secret_access_key='xxx'
+                       )
+    call_two = EarthQuake(2)
     while True:
         call_one = EarthQuake(1)
         call_one.fill_in_csv()
+        if call_one.get_count == 0 or call_two.get_count == 0:
+            time.sleep(240)
+            continue
         if call_two.get_count != call_one.get_count:
             report_quake()
         time.sleep(60)
         call_two = EarthQuake(2)
         call_two.fill_in_csv()
+        if call_two.get_count == 0 or call_one.get_count == 0:
+            time.sleep(240)
+            continue
         if call_two.get_count != call_one.get_count:
             report_quake()
